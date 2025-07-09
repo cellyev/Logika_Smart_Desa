@@ -17,7 +17,7 @@
 
 * **User upload:** foto **KTP**
 * Kirim **OTP** via **WhatsApp / SMS** ke nomor yang didaftarkan
-* Verifikasi **OTP** berhasil → status tetap `menunggu_verifikasi`, atau bisa `otp_terverifikasi`
+* Verifikasi **OTP** berhasil → status tetap `menunggu_verifikasi`
 
 ---
 
