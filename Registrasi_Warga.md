@@ -1,55 +1,34 @@
 # Logika Registrasi Warga – Backend Desa Digital
 
-## BATCH 1 – Input Data Awal
+### **BATCH 1 – Input Data Awal**
 
-User mengisi data ke beberapa koleksi:
+* **User mengisi data:**
 
-- `warga`: akun autentikasi (email, username, password, telepon, desa)
-- `demografi_warga`: data identitas pribadi (NIK, nama, tempat lahir, tanggal lahir, jenis kelamin, dll.)
-- `alamat_warga`: alamat lengkap (jalan, RT/RW, dusun, desa, kecamatan, kabupaten, provinsi)
-- `pekerjaan_warga`: informasi pekerjaan (jenis pekerjaan, tempat kerja, dsb.)
+  * `warga`: akun autentikasi + info dasar (email, password, username, telepon)
+  * `demografi_warga`: data pribadi (NIK, nama, tempat lahir, dll.)
+  * `alamat_warga`: alamat lengkap sesuai KTP atau domisili
+  * `pekerjaan_warga`: pekerjaan saat ini
 
-**Status awal:**  
-- `status_akun`: `menunggu_verifikasi`  
-- `status_demografi`: `menunggu_verifikasi`  
-- `status_alamat`: `menunggu_verifikasi`
+* **Status awal:** `menunggu_verifikasi`
 
 ---
 
-## BATCH 2 – Upload Dokumen dan OTP
+### **BATCH 2 – Upload Dokumen Identitas**
 
-User melakukan dua langkah:
-
-1. Upload **foto KTP**
-   - Disimpan dalam koleksi `dokumen_ktp`
-   - Status: `status_ktp`: `dikirim`
-
-2. Verifikasi nomor telepon melalui OTP (WhatsApp/SMS)
-   - OTP dikelola di koleksi `otp_verifikasi_wa`
-     - `user_id`: relasi ke `warga`
-     - `kode_otp`
-     - `expired_at`
-     - `is_verified`
-     - `attempt_count`
-   - Status verifikasi: `otp_terverifikasi`: `true/false`
+* **User upload:** foto **KTP**
+* Kirim **OTP** via **WhatsApp / SMS** ke nomor yang didaftarkan
+* Verifikasi **OTP** berhasil → status tetap `menunggu_verifikasi`, atau bisa `otp_terverifikasi`
 
 ---
 
-## BATCH 3 – Verifikasi Manual oleh Admin Desa
+### **BATCH 3 – Verifikasi Manual oleh Admin**
 
-Admin desa melakukan:
+* **Admin desa:**
 
-1. Video call langsung dengan warga
-2. Upload **swafoto warga memegang KTP**
-   - Disimpan dalam koleksi `swafoto_ktp`
-   - Status: `status_swafoto`: `dikirim` → `valid`
+  * melakukan **video call**
+  * mengunggah **swafoto warga dengan KTP**
+* Jika lolos:
 
-Jika semua validasi selesai:
-
-- `status_akun`: `aktif`
-- `status_demografi`: `valid`
-- `status_alamat`: `valid`
-- `status_ktp`: `valid`
-- `status_swafoto`: `valid`
-- Data warga dapat digunakan untuk login dan akses sistem
-
+  * Status seluruh data menjadi `aktif`
+  * Menandai semua step sebelumnya sebagai sudah diverifikasi
+  * Data aman digunakan untuk login dan akses fitur sistem
