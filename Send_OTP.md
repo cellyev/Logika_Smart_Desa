@@ -1,4 +1,4 @@
-Secara garis besar logika pengiriman OTP kamu sudah solid, tapi ada beberapa poin yang bisa ditambahkan atau diperjelas untuk meningkatkan keamanan dan keandalan:
+# SEND OTP
 
 1. **Normalisasi & Validasi Email**
    Setelah (`1. req body email`), lakukan validasi format email dan normalisasi (trim, lowercase) untuk menghindari duplikasi entri.
