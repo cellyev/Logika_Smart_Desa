@@ -32,7 +32,7 @@
   - DELETE       /pekerjaan-warga/[id]/delete
 ```
 
-### 🧠 **Struktur Routing Berbasis `warga` + GET ALL**
+### **Struktur Routing Berbasis `warga` + GET ALL**
 
 ```
 /admin/warga:
