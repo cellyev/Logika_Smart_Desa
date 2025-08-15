@@ -14,7 +14,7 @@ Namun, saya merancang autentikasi baru dengan membedakan peran secara tegas:
 3. **Admin dinas**
 4. **Petugas dinas**
 
-Perbedaan ini saya buat agar setiap peran fokus pada fungsinya masing-masing. Contohnya:
+Perbedaan ini dibuat agar setiap peran fokus pada fungsinya masing-masing. Contohnya:
 
 * Jika login sebagai **admin desa**, maka hanya mendapatkan fitur admin desa.
 * Jika login sebagai **warga**, maka hanya mendapatkan fitur warga.
